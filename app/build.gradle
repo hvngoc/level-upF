@@ -4,12 +4,12 @@ apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.waka.dana.na"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 100
         versionName "1.0.0"
 
@@ -113,4 +113,9 @@ dependencies {
 
     implementation "com.airbnb.android:epoxy:4.6.4"
     kapt "com.airbnb.android:epoxy-processor:4.6.4"
+
+    implementation("androidx.room:room-runtime:2.5.1")
+    annotationProcessor("androidx.room:room-compiler:2.5.1")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.5.1")
 }
