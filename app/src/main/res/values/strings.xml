@@ -9,4 +9,8 @@
     <string name="pressure" formatted="false">Pressure: %s</string>
     <string name="humidity" formatted="false">Humidity: %s%%</string>
     <string name="description" formatted="false">Description: %s</string>
+
+    <string name="num_f1" formatted="false">Số lượng F1: %s</string>
+    <string name="price" formatted="false">Doanh số thu nhập: %s</string>
+    <string name="num_sell" formatted="false">Sản lượng: %s</string>
 </resources>
