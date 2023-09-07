@@ -3,6 +3,8 @@
 
     <string name="no_result">No result!!</string>
     <string name="error_default">Error default</string>
+    <string name="warning">Warning</string>
+    <string name="ok">OK</string>
 
     <string name="date" formatted="false">Date: %s</string>
     <string name="temperature" formatted="false">Temperature: %s\u2103</string>
@@ -13,4 +15,5 @@
     <string name="num_f1" formatted="false">Số lượng F1: %s</string>
     <string name="price" formatted="false">Doanh số thu nhập: %s</string>
     <string name="num_sell" formatted="false">Sản lượng: %s</string>
+    <string name="referral_not_found">Không tìm thấy người giới thiệu</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.waka.dana.na.data.di
 
+import com.waka.dana.na.data.repository.UserRepositoryImpl
 import com.waka.dana.na.data.repository.WeatherRepositoryImpl
+import com.waka.dana.na.domain.repository.UserRepository
 import com.waka.dana.na.domain.repository.WeatherRepository
 import org.koin.dsl.module
 
@@ -9,4 +11,6 @@ import org.koin.dsl.module
  */
 val repositoryModule = module {
     single<WeatherRepository> { WeatherRepositoryImpl(get(), get(), get()) }
+    single<UserRepository> { UserRepositoryImpl(get()) }
+
 }

@@ -1,6 +1,8 @@
 package com.waka.dana.na.domain.di
 
+import com.waka.dana.na.domain.usecase.CheckReferralUserUseCase
 import com.waka.dana.na.domain.usecase.GetListWeatherByNameUseCase
+import com.waka.dana.na.domain.usecase.SaveNewUserUseCase
 import org.koin.dsl.module
 
 /**
@@ -8,4 +10,6 @@ import org.koin.dsl.module
  */
 val useCaseModule = module {
     single<GetListWeatherByNameUseCase> { GetListWeatherByNameUseCase(get()) }
+    single { SaveNewUserUseCase() }
+    single { CheckReferralUserUseCase(get()) }
 }
