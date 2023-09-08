@@ -14,7 +14,7 @@ import com.waka.dana.na.data.room.entities.UserEntity
 interface UserDao {
 
     @Insert(onConflict = REPLACE)
-    fun insertUser(user: UserEntity)
+    fun insertUser(user: UserEntity): UserEntity
 
     @Update(onConflict = REPLACE)
     fun updateUser(user: UserEntity)

@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.waka.dana.na.domain.response.DataResult
+import com.waka.dana.na.domain.model.NewUser
 import com.waka.dana.na.domain.usecase.CheckReferralUserUseCase
-import kotlinx.coroutines.CoroutineExceptionHandler
+import com.waka.dana.na.domain.usecase.SaveNewUserUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
@@ -15,24 +15,15 @@ import org.koin.core.component.KoinComponent
  * Created by hvngoc on 7/29/22
  */
 class NewViewModel(
-    private val checkReferralUserUseCase: CheckReferralUserUseCase
+    private val checkReferralUserUseCase: CheckReferralUserUseCase,
+    private val saveNewUserUseCase: SaveNewUserUseCase,
 ) : ViewModel(), KoinComponent {
-
-    private val exceptionHandler = CoroutineExceptionHandler { _, error ->
-        _data.value = DataResult.Error(error)
-    }
-
-    private val _data = MutableLiveData<DataResult>()
-    val data: LiveData<DataResult> = _data
 
     private val _checkUser = MutableLiveData<Boolean>()
     val checkUser: LiveData<Boolean> = _checkUser
 
-    fun loadData(query: String?) {
-        viewModelScope.launch(Dispatchers.Main + exceptionHandler) {
-
-        }
-    }
+    private val _saveUser = MutableLiveData<Boolean>()
+    val saveUser: LiveData<Boolean> = _saveUser
 
     fun checkUserId(referralId: Int?) {
         referralId?.let { id ->
@@ -42,6 +33,14 @@ class NewViewModel(
             }
         } ?: run {
             _checkUser.value = true
+        }
+    }
+
+    fun saveNewUser(referral: Int?, name: String?, price: String?, sell: String?) {
+        val param = NewUser(referral, name, price, sell)
+        viewModelScope.launch {
+            val save = saveNewUserUseCase.loadData(param)
+            _saveUser.value = save ?: false
         }
     }
 }

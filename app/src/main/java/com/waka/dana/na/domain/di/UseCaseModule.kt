@@ -10,6 +10,6 @@ import org.koin.dsl.module
  */
 val useCaseModule = module {
     single<GetListWeatherByNameUseCase> { GetListWeatherByNameUseCase(get()) }
-    single { SaveNewUserUseCase() }
+    single { SaveNewUserUseCase(get()) }
     single { CheckReferralUserUseCase(get()) }
 }

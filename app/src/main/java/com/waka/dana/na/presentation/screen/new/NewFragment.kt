@@ -58,6 +58,15 @@ class NewFragment : Fragment(), KoinComponent {
                     .show()
             }
         }
+        viewModel.saveUser.observe(viewLifecycleOwner) {
+            if (it == true) {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.success)
+                    .setMessage(R.string.save_ok)
+                    .setPositiveButton(R.string.ok, null)
+                    .show()
+            }
+        }
     }
 
     private fun checkReferral(id: Int?) {
@@ -65,6 +74,6 @@ class NewFragment : Fragment(), KoinComponent {
     }
 
     private fun saveNewUser(referral: Int?, name: String?, price: String?, sell: String?) {
-
+        viewModel.saveNewUser(referral, name, price, sell)
     }
 }
