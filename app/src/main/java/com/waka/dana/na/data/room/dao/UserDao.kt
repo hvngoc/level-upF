@@ -19,7 +19,7 @@ interface UserDao {
     @Update(onConflict = REPLACE)
     fun updateUser(user: UserEntity)
 
-    @Query("select * from User where userId = :p0")
+    @Query("select * from User where userId = :id")
     fun findUserById(id: Int): UserEntity?
 
     @Query("select * from User")
