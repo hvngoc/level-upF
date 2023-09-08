@@ -17,10 +17,10 @@ interface UserDao {
     fun insertUser(user: UserEntity)
 
     @Update(onConflict = REPLACE)
-    fun updateTask(user: UserEntity)
+    fun updateUser(user: UserEntity)
 
     @Query("select * from User where userId = :p0")
-    fun findTaskById(id: Int): UserEntity
+    fun findUserById(id: Int): UserEntity?
 
     @Query("select * from User")
     fun getAllUser(): List<UserEntity>

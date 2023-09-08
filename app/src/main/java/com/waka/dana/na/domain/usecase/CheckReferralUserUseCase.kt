@@ -10,6 +10,6 @@ class CheckReferralUserUseCase(private val userRepository: UserRepository) :
 
     override suspend fun loadData(params: Int?): Boolean? {
         val id = params ?: return true
-        return userRepository.checkUerId(id)
+        return userRepository.checkUserId(id)
     }
 }

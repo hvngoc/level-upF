@@ -11,6 +11,6 @@ import org.koin.dsl.module
  */
 val repositoryModule = module {
     single<WeatherRepository> { WeatherRepositoryImpl(get(), get(), get()) }
-    single<UserRepository> { UserRepositoryImpl(get()) }
+    single<UserRepository> { UserRepositoryImpl(get(), get()) }
 
 }

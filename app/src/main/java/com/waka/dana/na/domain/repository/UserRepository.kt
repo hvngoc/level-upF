@@ -6,5 +6,5 @@ package com.waka.dana.na.domain.repository
 interface UserRepository {
 
     @Throws(Throwable::class)
-    fun checkUerId(id: Int): Boolean
+    fun checkUserId(id: Int): Boolean
 }
